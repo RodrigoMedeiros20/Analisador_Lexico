@@ -18,7 +18,7 @@ class TokenType(Enum):
     NAO = auto()        # NAO
 
     # Identificador e Literais
-    IDENTIFIER = auto()
+    ID = auto()
     NUMINT = auto()     # Inteiro
     NUMREAL = auto()    # Real
     CADEIA = auto()     # String

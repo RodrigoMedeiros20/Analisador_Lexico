@@ -1,5 +1,6 @@
 import os
 from lexical.scanner import Scanner
+from syntactic.parser import Parser # Importa o Parser
 
 def main():
 
@@ -7,19 +8,24 @@ def main():
     
     if not os.path.exists(filename):
         print(f"Erro: O arquivo de teste '{filename}' não foi encontrado.")
-        print("Por favor, crie o arquivo na mesma pasta do main.py.")
         return
 
-    print(f"--- Iniciando Análise Léxica do arquivo '{filename}' ---\n")
+    print(f"--- Iniciando Compilação do arquivo '{filename}' ---")
     
-    sc = Scanner(filename)
-    
-    tk = sc.next_token()
-    while tk is not None:
-        print(tk)
-        tk = sc.next_token()
+    try:
+        # 1. Análise Léxica (O Parser gerencia o Scanner)
+        sc = Scanner(filename)
+        
+        # 2. Análise Sintática (Inicia o processo)
+        parser = Parser(sc)
+        parser.parse() # Chama o ponto de entrada do parser
 
-    print("\n--- Análise Léxica Concluída ---")
+    except SyntaxError as e:
+        # Pega erros sintáticos reportados pelo Parser
+        print(f"Erro de Compilação: {e}")
+    except Exception as e:
+        # Pega outros erros (ex: arquivo não encontrado)
+        print(f"Ocorreu um erro inesperado: {e}")
 
 if __name__ == "__main__":
     main()

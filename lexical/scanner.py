@@ -82,7 +82,7 @@ class Scanner:
             self._advance()
         
         # Verifica se é uma palavra reservada ou um identificador
-        token_type = self.RESERVED_WORDS.get(text, TokenType.IDENTIFIER)
+        token_type = self.RESERVED_WORDS.get(text, TokenType.ID)
         return Token(token_type, text, self.line, start_col)
 
     def _scan_number(self) -> Token:
