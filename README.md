@@ -112,6 +112,7 @@ def _expressaoAritmetica(self):
     while self.current_token.type in (TokenType.PLUS, TokenType.MINUS):
         self._advance() # 3. Consome o '+' ou '-'
         self._termo()   # 4. Analisa o próximo 'Termo'
+```
 
 Essa mesma lógica foi aplicada para _termo (com * e /) e _expressaoRelacional (com E e OU), resolvendo o problema da recursão à esquerda.
 
