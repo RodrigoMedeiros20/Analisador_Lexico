@@ -3,7 +3,7 @@ from lexical.scanner import Scanner
 
 def main():
 
-    filename = "programa_teste.mc"
+    filename = "programa_ckp2_qui_noite.mc"
     
     if not os.path.exists(filename):
         print(f"Erro: O arquivo de teste '{filename}' não foi encontrado.")
